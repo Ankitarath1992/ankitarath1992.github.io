@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankita Rath | Talent Acquisition Partner</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #171717;
+      --muted: #5f6673;
+      --line: #e9edf3;
+      --soft: #f7f9fc;
+      --blue: #4f7cff;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --teal: #14b8a6;
+      --yellow: #f59e0b;
+      --shadow: 0 14px 40px rgba(26, 36, 61, 0.08);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 52px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .gradient-border {
+      position: relative;
+      background: #fff;
+    }
+
+    .gradient-border::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(79,124,255,0.35), rgba(139,92,246,0.25), rgba(236,72,153,0.25));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* NAV */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 68px 0 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 15%, rgba(79,124,255,0.14), transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(139,92,246,0.14), transparent 22%),
+        radial-gradient(circle at 90% 78%, rgba(236,72,153,0.12), transparent 18%),
+        radial-gradient(circle at 18% 82%, rgba(20,184,166,0.12), transparent 18%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(79,124,255,0.12), rgba(139,92,246,0.12));
+      border: 1px solid #e5eaf4;
+      color: #31415d;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .headline {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #2e3a53;
+      margin-bottom: 14px;
+      max-width: 850px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 740px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      box-shadow: 0 12px 25px rgba(79,124,255,0.22);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-panel {
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,250,255,0.98));
+      border: 1px solid #e9edf5;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-point {
+      border-radius: 18px;
+      padding: 14px 15px;
+      background: var(--soft);
+      border: 1px solid #edf0f5;
+      color: #394558;
+      font-size: 0.96rem;
+    }
+
+    /* GRID HELPERS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .grid-2-equal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* TEXT */
+    .lead-text,
+    .body-text {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skill-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid #e7ebf3;
+      background: linear-gradient(90deg, rgba(79,124,255,0.06), rgba(139,92,246,0.06));
+      font-weight: 600;
+      color: #26354d;
+    }
+
+    /* EXPERIENCE */
+    .experience-card {
+      border-left: 5px solid var(--blue);
+    }
+
+    .role-title {
+      font-size: 1.06rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .role-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .bullet-list {
+      padding-left: 18px;
+      color: var(--muted);
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-experience-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-item {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mini-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* PROJECTS */
+    .project-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-box {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #fbfcff);
+    }
+
+    .project-box h3 {
+      font-size: 1.06rem;
+      margin-bottom: 8px;
+    }
+
+    .project-box p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: #34435e;
+    }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-link {
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+      color: #26354d;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .grid-2,
+      .grid-2-equal {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        padding: 18px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .card,
+      .hero-panel {
+        padding: 22px;
+      }
+
+      .headline {
+        font-size: 0.96rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">Ankita Rath</a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#initiatives">AI Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Talent Acquisition Professional</div>
+        <h1>Hello, I’m <span>Ankita</span></h1>
+        <div class="headline">
+          Talent Acquisition Partner | Tech & Data-Driven Hiring | Building Teams That Last | Employer Branding Specialist | Passionate about Employee Engagement
+        </div>
+        <p>
+          I work in Talent Acquisition, focusing on hiring for tech and business teams.
+          I enjoy combining data, market insights, and strong conversations to find the right people.
+          Over the years, I’ve worked closely with leadership to build high-impact teams.
+          For me, hiring is not just filling roles — it’s about building long-term value.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/ankita-rath-11394ba2/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal">
+        <h3>Quick Snapshot</h3>
+        <div class="hero-points">
+          <div class="hero-point">6+ years in end-to-end recruitment, stakeholder management, and employer branding</div>
+          <div class="hero-point">Strong background in tech hiring, process optimization, and data-driven decision making</div>
+          <div class="hero-point">Built AI-led recruiter workflows for better intake, outreach, and interview structure</div>
+          <div class="hero-point">Focused on creating hiring processes that are scalable, thoughtful, and candidate-friendly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container grid-2">
+      <div class="card gradient-border reveal">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A recruiter who values clarity, strong partnerships, and long-term hiring impact.</p>
+        <p class="body-text">
+          I am a results-driven Talent Acquisition Partner with 6+ years of experience in end-to-end recruitment,
+          stakeholder management, and employer branding. I have worked across multiple global markets, with a strong focus
+          on tech hiring, process improvement, and data-driven decision making. I enjoy building strong relationships with
+          both candidates and hiring managers, and I am passionate about creating a hiring experience that is efficient,
+          transparent, and inclusive.
+        </p>
+      </div>
+
+      <div class="card gradient-border reveal" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Core strengths I bring into every search, stakeholder conversation, and hiring process.</p>
+        <div class="skills-grid">
+          <div class="skill-item">End-to-End Talent Acquisition</div>
+          <div class="skill-item">Stakeholder Management & Hiring Partnering</div>
+          <div class="skill-item">Strategic Hiring & Workforce Planning</div>
+          <div class="skill-item">Talent Intelligence & Market Mapping</div>
+          <div class="skill-item">Candidate Experience & Process Optimization</div>
+          <div class="skill-item">HR Analytics & Data-Driven Hiring</div>
+          <div class="skill-item">AI & Automation in Recruitment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="initiatives">
+    <div class="container">
+      <h2 class="section-title reveal">Strategic Initiatives & AI Projects</h2>
+      <p class="section-subtitle reveal">
+        Practical recruiter-focused systems and workflows designed to improve clarity, speed, consistency, and hiring quality.
+      </p>
+
+      <div class="project-stack">
+        <div class="card gradient-border reveal">
+          <div class="project-box">
+            <h3>Center — AI Recruiting Assistant</h3>
+            <p>
+              I built a simple AI assistant configured to a recruiting context — including tone, company context,
+              candidate bar, hiring principles, and role-specific non-negotiables. It is designed to support recruiters
+              in doing higher-quality work with more consistency and less manual rewriting.
+            </p>
+            <p>
+              The assistant can run workflows across the hiring process, helping improve role clarity, outreach quality,
+              intake structure, interview quality, and decision support.
+            </p>
+            <div class="tag-list">
+              <span class="tag">/enhance</span>
+              <span class="tag">/kickoff</span>
+              <span class="tag">/outreach</span>
+              <span class="tag">/interviewkit</span>
+              <span class="tag">/okr</span>
+              <span class="tag">/detox</span>
+              <span class="tag">/rewrite</span>
+              <span class="tag">/signals</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2-equal">
+          <div class="card gradient-border reveal">
+            <div class="project-box">
+              <h3>Custom Intake Meetings</h3>
+              <p>
+                I created custom GPT-based recruiter support workflows for hiring manager intake meetings, using tools like
+                Replit to shape a more structured process. The goal was to make role expectations clearer from the start,
+                improve alignment between recruiters and hiring managers, and reduce confusion around scope, candidate bar,
+                and must-have requirements.
+              </p>
+              <p>
+                This helps create better kickoff conversations, sharper role briefs, and more focused hiring plans before
+                sourcing even begins.
+              </p>
+            </div>
+          </div>
+
+          <div class="card gradient-border reveal">
+            <div class="project-box">
+              <h3>Sourcing & Hiring Workflow Automation</h3>
+              <p>
+                I have been exploring AI-led automation to streamline sourcing, research, and screening workflows with a
+                focus on recruiter productivity and scalable hiring practices.
+              </p>
+              <p>
+                This includes testing ways to reduce repetitive work, improve search quality, support recruiter judgment
+                with better context, and build systems that can scale across multiple roles and stakeholder groups.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container grid-2">
+      <div class="card gradient-border experience-card reveal">
+        <h2 class="section-title">Recent Experience</h2>
+        <p class="section-subtitle">Most recent role and key outcomes.</p>
+
+        <div class="role-title">Talent Acquisition | Shopware</div>
+        <div class="role-meta">Recent Experience</div>
+
+        <ul class="bullet-list">
+          <li>Managed end-to-end recruitment across Europe, the US, and international markets, hiring for Engineering, GTM, Sales, Commercial, and Marketing roles in a global SaaS environment.</li>
+          <li>Closed 12+ technical and business roles within 4 months while managing multiple concurrent requisitions and maintaining a 90% offer acceptance rate.</li>
+          <li>Reduced time-to-hire by 27% by implementing AI-powered sourcing and interview tools, including Metaview, HireEz, and customized ChatGPT workflows.</li>
+          <li>Improved hiring manager satisfaction from 6+ to 8 and increased positive candidate feedback by 30% by introducing structured job kick-offs, feedback SLAs, and transparent communication processes.</li>
+          <li>Developed and launched a Hiring Manager Training Program for global hiring managers, improving structured interviews and competency-based evaluation practices.</li>
+          <li>Supported employer branding initiatives that improved Glassdoor ratings from 3.6 to 4 during the contract period.</li>
+          <li>Worked closely with Product and Engineering teams to support hiring for AI-related roles and understand new AI features in the product roadmap.</li>
+          <li>Quickly ramped up within the first 30 days to independently manage global stakeholders and active hiring priorities, ensuring continuity during maternity leave coverage.</li>
+          <li>Proactively upskilled in AI-driven recruitment methodologies and applied tools such as ChatGPT to improve hiring workflows and recruiter effectiveness.</li>
+        </ul>
+      </div>
+
+      <div class="card gradient-border reveal">
+        <h2 class="section-title">Other Experience</h2>
+        <p class="section-subtitle">Earlier roles can be added here in a shorter format.</p>
+
+        <div class="mini-experience-list">
+          <div class="mini-item">
+            <div class="role-title">Add Role Title</div>
+            <div class="role-meta">Add Company Name | Add Date Range</div>
+          </div>
+
+          <div class="mini-item">
+            <div class="role-title">Add Role Title</div>
+            <div class="role-meta">Add Company Name | Add Date Range</div>
+          </div>
+
+          <div class="mini-item">
+            <div class="role-title">Add Role Title</div>
+            <div class="role-meta">Add Company Name | Add Date Range</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2-equal">
+      <div class="card gradient-border reveal" id="education">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic foundation that supports communication, structure, and professional growth.</p>
+        <div class="role-title">Bachelor of Engineering (Communication)</div>
+        <div class="role-meta">Biju Pattnaik University of Technology, India | 2010 – 2014</div>
+      </div>
+
+      <div class="card gradient-border reveal" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Feel free to connect for hiring, collaboration, or professional opportunities.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:rathankita2@gmail.com">rathankita2@gmail.com</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/ankita-rath-11394ba2/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ankita Rath. All rights reserved.
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
